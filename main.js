@@ -1,5 +1,5 @@
 "use strict";
-const ITEM_SIZE = 60;
+const ITEM_SIZE = 80;
 let lifeNum = 3;
 
 const field = document.querySelector(".game__field");
