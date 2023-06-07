@@ -185,7 +185,8 @@ img[data-id="devil"] {
     height: 100%;
   }
   .game__field {
-    height: 60%;
+    margin-top: 150px;
+    height: 48.3%;
   }
   .pop-up {
     width: 200px;
