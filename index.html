@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NeoSheepGame</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./main.js" defer></script>
+    <script
+      src="https://kit.fontawesome.com/3f66ef61be.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <section class="game">
+      <header class="game__header">
+        <div class="button__box">
+          <button class="game__button">
+            <i class="fas fa-play"></i>
+          </button>
+          <button class="gameItem__relocation">
+            <i class="fa-solid fa-cross"></i>
+          </button>
+          <button class="game__firstScreen">시작화면</button>
+        </div>
+        <span class="game__timer">0:0</span>
+        <span class="game__score">0</span>
+        <span class="life">
+          <i class="fa-solid fa-heart" data-num="0" style="color:red"></i>
+          <i class="fa-solid fa-heart" data-num="1" style="color:red"></i>
+          <i class="fa-solid fa-heart" data-num="2" style="color:red"></i>
+        </span>
+      </header>
+    
+      <div class="jesus__area">
+      <img class="jesus" src="./img/jesus.png" alt="" />
+    </div>
+      <section class="game__field"></section>
+    </section>
+    <section class="pop-up">
+      <span class="pop-up__message">hello</span>
+      <button class="pop-up__refresh">
+        <i class="fa-solid fa-rotate-right"></i>
+      </button>
+    </section>
+    <section class="first__screen hide">
+      <h1 class="first__subject">"잃어버린 양을 찾아서"</br>(Renewal)</h1>
+      <div class="first__button__box">
+        <button class="first__screen__btn1">초 급</button>
+        <button class="first__screen__btn2">중 급</button>
+        <button class="first__screen__btn3">상 급</button>
+      </div>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,222 @@
+html,
+body {
+  text-align: center;
+}
+
+.game {
+  background: url("./img/background.png") center/cover no-repeat;
+  width: 800px;
+  height: 600px;
+}
+
+.game__header {
+  width: 250px;
+  height: 250px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 40px;
+  padding-top: 15px;
+}
+button {
+  background-color: azure;
+  border: 1px solid black;
+  border-radius: 10px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  font-size: 35px;
+  width: 60px;
+  height: 60px;
+}
+.button__box {
+  display: flex;
+  justify-content: space-around;
+  width: 250px;
+  height: 60px;
+}
+.button__box.hide {
+  display: none;
+}
+.gameItem__relocation.deactive {
+  background-color: #000090;
+  pointer-events: none;
+}
+
+.game__firstScreen {
+  font-size: 20px;
+}
+
+.game__timer {
+  background-color: #dada1980;
+  width: 120px;
+  height: 60px;
+  font-size: 40px;
+}
+.game__timer.hide {
+  visibility: hidden;
+}
+
+.game__score {
+  background-color: #dada19;
+  width: 60px;
+  height: 60px;
+  font-size: 40px;
+  border-radius: 50%;
+}
+
+.game__field {
+  width: 100%;
+  height: 280px;
+  overflow-y: auto;
+  padding-top: 30px;
+  position: relative;
+}
+.jesus {
+  position: absolute;
+  top: 250px;
+  left: 360px;
+}
+.jesus__message {
+  position: absolute;
+  width: 130px;
+  height: 100px;
+  top: 180px;
+  left: 440px;
+}
+
+.item__devill2 {
+  width: 80px;
+  height: 80px;
+  -webkit-user-drag: none;
+  user-select: none;
+}
+.item__sheep {
+  width: 70px;
+  height: 70px;
+  -webkit-user-drag: none;
+  user-select: none;
+}
+.item__devill2:hover,
+.item__sheep:hover {
+  transform: scale(1.1);
+  transition: transform 300ms ease-in;
+}
+
+.pop-up {
+  background-color: rgba(17, 2, 2, 0.3);
+  width: 350px;
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  display: none;
+}
+
+.pop-up.show {
+  transform: translate(220px, -250px);
+  display: block;
+  display: flex;
+}
+.pop-up__message {
+  font-size: 35px;
+}
+.pop-up__refresh {
+  width: 80px;
+  height: 80px;
+}
+.first__screen {
+  width: 800px;
+  height: 600px;
+  background-color: #00000090;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  top: 8px;
+}
+
+.first__screen.hide {
+  display: none;
+}
+.first__subject {
+  padding-top: 50px;
+  font-size: 40px;
+  color: white;
+}
+.first__screen__btn1,
+.first__screen__btn2,
+.first__screen__btn3 {
+  font-size: 25px;
+  width: 200px;
+  height: 50px;
+  border: 1px solid black;
+  border-radius: 8px;
+  background-color: #00f0dc80;
+}
+.first__button__box {
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-bottom: 45px;
+}
+
+img[data-id="devil"].scale {
+  transition: rotate 1s ease-in-out;
+}
+img[data-id="devil"] {
+  z-index: 1;
+}
+
+@media screen and (max-width: 768px) {
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+    display: relative;
+  }
+  .game {
+    width: 100%;
+    height: 100%;
+  }
+  .game__field {
+    height: 60%;
+  }
+  .pop-up {
+    width: 200px;
+    height: 150px;
+    margin: auto;
+  }
+  .pop-up__message {
+    font-size: 20px;
+  }
+  .pop-up__refresh {
+    font-size: 20px;
+    width: 40px;
+    height: 40px;
+  }
+  .pop-up.show {
+    transform: translate(0%, -250%);
+  }
+  .first__screen {
+    width: 100%;
+    height: 100%;
+  }
+
+  .jesus {
+    display: absolute;
+    top: 42%;
+    left: 52%;
+    transform: translate(-50%, -50%);
+  }
+  .jesus__message {
+    top: 33%;
+    left: 73%;
+    transform: translate(-50%, -50%);
+  }
+}
