@@ -24,7 +24,6 @@ const first__screen__btn3 = document.querySelector(".first__screen__btn3");
 
 const life = document.querySelector(".life");
 
-let heartArray = [];
 let RUNNING_TIME = 10;
 let SCORE = 5;
 let started = false;
