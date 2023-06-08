@@ -194,7 +194,7 @@ img[data-id="devil"] {
   }
   .game__field {
     height: 50%;
-    overflow-y: hidden;
+    overflow-y: auto;
   }
   .pop-up {
     width: 250px;
