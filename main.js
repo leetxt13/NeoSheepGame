@@ -87,8 +87,9 @@ popupRefresh_btn.addEventListener("click", () => {
     initGame(8, 5);
   } else if (middleLevel == true) {
     initGame(13, 10);
+    makeDevilLarge();
   } else if (highLevel == true) {
-    initGame(18, 18);
+    initGame(19, 18);
     makeDevilMove();
     addingTime = true;
   }
