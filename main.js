@@ -1,5 +1,5 @@
 "use strict";
-const ITEM_SIZE = 80;
+const ITEM_SIZE = 100;
 const DEVIL_SIZE = -50;
 let lifeNum = 3;
 
