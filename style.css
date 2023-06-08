@@ -176,7 +176,10 @@ img[data-id="devil"] {
 .fa-solid.fa-heart {
   font-size: 28px;
 }
-
+.name {
+  font-size: 20px;
+  color: white;
+}
 @media screen and (max-width: 768px) {
   html,
   body {
@@ -235,5 +238,9 @@ img[data-id="devil"] {
   .game__score {
     font-size: 40px;
     line-height: 60px;
+  }
+  .name {
+    font-size: 20px;
+    color: white;
   }
 }
