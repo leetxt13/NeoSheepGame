@@ -1,5 +1,6 @@
 "use strict";
 const ITEM_SIZE = 80;
+const DEVIL_SIZE = -50;
 let lifeNum = 3;
 
 const field = document.querySelector(".game__field");
@@ -29,6 +30,7 @@ let SCORE = 5;
 let started = false;
 let timer = undefined;
 let sheepMoveInterval = undefined;
+let devilMoveInterval = undefined;
 let lowLevel = false;
 let middleLevel = false;
 let highLevel = false;
@@ -86,7 +88,7 @@ popupRefresh_btn.addEventListener("click", () => {
   } else if (middleLevel == true) {
     initGame(13, 10);
   } else if (highLevel == true) {
-    initGame(18, 18);
+    initGame(18, 14);
     makeDevilMove();
     addingTime = true;
   }
@@ -136,7 +138,7 @@ first__screen__btn3.addEventListener("click", () => {
   highLevel = true;
   middleLevel = false;
   lowLevel = false;
-  initGame(18, 18);
+  initGame(18, 14);
   makeDevilMove();
   first__screen.classList.add("hide");
   addingTime = true;
@@ -174,6 +176,7 @@ function initGame(sheepNum, devilNum) {
     clearInterval(sheepMoveInterval);
   }, 8000);
 }
+
 function stopGame() {
   started = false;
   stopTimer();
@@ -242,10 +245,25 @@ function addItem(itemNum, itemSort) {
 }
 
 function makePosition(img) {
+  const field = document.querySelector(".game__field");
+  const field__size = field.getBoundingClientRect();
   const x1 = 0;
   const y1 = 0;
   const x2 = field__size.width - ITEM_SIZE;
   const y2 = field__size.height - ITEM_SIZE;
+  const x = makeRandomNumber(x1, x2);
+  const y = makeRandomNumber(y1, y2);
+  img.style.position = "absolute";
+  img.style.top = `${y}px`;
+  img.style.left = `${x}px`;
+}
+function makeDevilPosition(img) {
+  const field = document.querySelector(".game__field");
+  const field__size = field.getBoundingClientRect();
+  const x1 = 0;
+  const y1 = 0;
+  const x2 = field__size.width - DEVIL_SIZE;
+  const y2 = field__size.height - DEVIL_SIZE;
   const x = makeRandomNumber(x1, x2);
   const y = makeRandomNumber(y1, y2);
   img.style.position = "absolute";
@@ -260,9 +278,9 @@ function makeRandomNumber(min, max) {
 function makeDevilMove() {
   const devil = document.querySelectorAll("img[data-id='devil']");
   devil.forEach((dev) => {
-    setInterval(() => {
-      makePosition(dev);
-      dev.style.transition = "all 2s cubic-bezier(.01,1.05,.84,-0.03) ";
+    devilMoveInterval = setInterval(() => {
+      makeDevilPosition(dev);
+      dev.style.transition = "all 5s cubic-bezier(.01,1.05,.84,-0.03) ";
     }, 1900);
   });
 }

@@ -189,9 +189,12 @@ img[data-id="devil"] {
     height: 100%;
     overflow-y: hidden;
   }
+  .game__header {
+    height: 35%;
+  }
   .game__field {
-    margin-top: 20px;
-    height: 58%;
+    height: 50%;
+    overflow-y: hidden;
   }
   .pop-up {
     width: 250px;
@@ -199,7 +202,7 @@ img[data-id="devil"] {
     margin: auto;
   }
   .pop-up__message {
-    font-size: 20px;
+    font-size: 25px;
   }
   .pop-up__refresh {
     font-size: 20px;
