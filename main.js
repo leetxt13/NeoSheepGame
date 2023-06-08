@@ -42,16 +42,7 @@ const gameWinSound = new Audio("./sound/game_win.mp3");
 const gameLostSound = new Audio("./sound/alert.wav");
 
 game__button.addEventListener("click", () => {
-  if (started === false) {
-    if (lowLevel == true) {
-      initGame(5);
-    } else if (middleLevel == true) {
-      initGame(10);
-    } else if (highLevel == true) {
-      initGame(15);
-      addingTime = true;
-    }
-  } else if (started === true) {
+  if (started === true) {
     game__button.innerHTML = `<i class="fas fa-play"></i>`;
     stopGame();
     showPopupMessage("REPLAY?");
@@ -93,9 +84,9 @@ popupRefresh_btn.addEventListener("click", () => {
   if (lowLevel == true) {
     initGame(8, 5);
   } else if (middleLevel == true) {
-    initGame(10, 10);
+    initGame(13, 10);
   } else if (highLevel == true) {
-    initGame(15, 10);
+    initGame(18, 18);
     makeDevilMove();
     addingTime = true;
   }
@@ -145,7 +136,7 @@ first__screen__btn3.addEventListener("click", () => {
   highLevel = true;
   middleLevel = false;
   lowLevel = false;
-  initGame(18, 10);
+  initGame(18, 18);
   makeDevilMove();
   first__screen.classList.add("hide");
   addingTime = true;
@@ -195,12 +186,14 @@ function stopGame() {
 
 function setTimerandScore() {
   let remainingTime = RUNNING_TIME;
-  if ((addingTime = false)) {
-    updateTimer(remainingTime);
-  }
   timer = setInterval(() => {
-    if (crossCondition === true || addingTime === true) {
+    if (crossCondition === true) {
       remainingTime += 5;
+      updateTimer(remainingTime);
+      crossCondition = false;
+      addingTime = false;
+    } else if (addingTime === true) {
+      remainingTime += 1;
       updateTimer(remainingTime);
       crossCondition = false;
       addingTime = false;
