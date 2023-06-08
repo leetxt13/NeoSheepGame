@@ -242,5 +242,6 @@ img[data-id="devil"] {
   .name {
     font-size: 20px;
     color: white;
+    padding-bottom: 80px;
   }
 }
