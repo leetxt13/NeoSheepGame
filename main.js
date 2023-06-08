@@ -1,6 +1,6 @@
 "use strict";
 const ITEM_SIZE = 90;
-const DEVIL_SIZE = 20;
+const DEVIL_SIZE = -30;
 let lifeNum = 3;
 
 const field = document.querySelector(".game__field");
