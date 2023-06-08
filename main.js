@@ -1,5 +1,5 @@
 "use strict";
-const ITEM_SIZE = 110;
+const ITEM_SIZE = 130;
 let lifeNum = 3;
 
 const field = document.querySelector(".game__field");
@@ -33,6 +33,7 @@ let lowLevel = false;
 let middleLevel = false;
 let highLevel = false;
 let crossCondition = false;
+let addingTime = false;
 
 const bgSound = new Audio("./sound/bg.mp3");
 const devilPullSound = new Audio("./sound/bug_pull.mp3");
@@ -48,6 +49,7 @@ game__button.addEventListener("click", () => {
       initGame(10);
     } else if (highLevel == true) {
       initGame(15);
+      addingTime = true;
     }
   } else if (started === true) {
     game__button.innerHTML = `<i class="fas fa-play"></i>`;
@@ -95,6 +97,7 @@ popupRefresh_btn.addEventListener("click", () => {
   } else if (highLevel == true) {
     initGame(15, 10);
     makeDevilMove();
+    addingTime = true;
   }
 });
 
@@ -109,7 +112,7 @@ cross__btn.addEventListener("click", () => {
   makeSheepMove();
   setTimeout(() => {
     clearInterval(sheepMoveInterval);
-  }, 2000);
+  }, 1000);
   setTimeout(() => {
     message.remove();
   }, 4000);
@@ -121,6 +124,7 @@ game__GoToFirstScreen__btn.addEventListener("click", () => {
 });
 
 first__screen__btn1.addEventListener("click", () => {
+  game__timer.innerText = "시 작";
   lowLevel = true;
   middleLevel = false;
   highLevel = false;
@@ -128,19 +132,23 @@ first__screen__btn1.addEventListener("click", () => {
   first__screen.classList.add("hide");
 });
 first__screen__btn2.addEventListener("click", () => {
+  game__timer.innerText = "시 작";
   middleLevel = true;
   lowLevel = false;
   highLevel = false;
   initGame(13, 10);
   first__screen.classList.add("hide");
+  makeDevilLarge();
 });
 first__screen__btn3.addEventListener("click", () => {
+  game__timer.innerText = "시 작";
   highLevel = true;
   middleLevel = false;
   lowLevel = false;
   initGame(18, 10);
   makeDevilMove();
   first__screen.classList.add("hide");
+  addingTime = true;
 });
 
 function initGame(sheepNum, devilNum) {
@@ -158,6 +166,9 @@ function initGame(sheepNum, devilNum) {
   makeSheepMove();
   setTimeout(() => {
     clearInterval(sheepMoveInterval);
+  }, 2000);
+  setTimeout(() => {
+    clearInterval(sheepMoveInterval);
   }, 4000);
   setTimeout(() => {
     makeSheepMove();
@@ -165,22 +176,34 @@ function initGame(sheepNum, devilNum) {
   setTimeout(() => {
     clearInterval(sheepMoveInterval);
   }, 7000);
+  setTimeout(() => {
+    makeSheepMove();
+  }, 7500);
+  setTimeout(() => {
+    clearInterval(sheepMoveInterval);
+  }, 8000);
 }
 function stopGame() {
   started = false;
   stopTimer();
   field.innerHTML = "";
   stopBGM(bgSound);
+  button__box.classList.add("hide");
+  game__timer.classList.add("hide");
+  game__timer.innerText = "시 작";
 }
 
 function setTimerandScore() {
   let remainingTime = RUNNING_TIME;
-  updateTimer(remainingTime);
+  if ((addingTime = false)) {
+    updateTimer(remainingTime);
+  }
   timer = setInterval(() => {
-    if (crossCondition === true) {
+    if (crossCondition === true || addingTime === true) {
       remainingTime += 5;
       updateTimer(remainingTime);
       crossCondition = false;
+      addingTime = false;
     }
     if (SCORE <= 0) {
       clearInterval(timer);
@@ -188,7 +211,7 @@ function setTimerandScore() {
     if (remainingTime === 0) {
       clearInterval(timer);
       stopGame();
-      showPopupMessage("YOU LOST");
+      showPopupMessage("YOU LOST!!💥");
       startBGM(gameLostSound);
     }
     updateTimer(remainingTime--);
@@ -247,19 +270,24 @@ function makeDevilMove() {
     setInterval(() => {
       makePosition(dev);
       dev.style.transition = "all 2s cubic-bezier(.01,1.05,.84,-0.03) ";
-    }, 2000);
-    setInterval(() => {
-      dev.classList.toggle("scale");
-    }, 3000);
+    }, 1900);
   });
 }
 
+function makeDevilLarge() {
+  const devil = document.querySelectorAll("img[data-id='devil']");
+  devil.forEach((dev) => {
+    setInterval(() => {
+      dev.classList.toggle("scale");
+    }, 1500);
+  });
+}
 function makeSheepMove() {
   const sheep = document.querySelectorAll("img[data-id='sheep']");
   sheepMoveInterval = setInterval(() => {
     sheep.forEach((sheep) => {
       makePosition(sheep);
-      sheep.style.transition = "all 1s cubic-bezier(1,.16,.21,.54)";
+      sheep.style.transition = "all 1100ms cubic-bezier(1,.16,.21,.54)";
     });
   }, 500);
 }
