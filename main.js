@@ -88,7 +88,7 @@ popupRefresh_btn.addEventListener("click", () => {
   } else if (middleLevel == true) {
     initGame(13, 10);
   } else if (highLevel == true) {
-    initGame(18, 14);
+    initGame(18, 18);
     makeDevilMove();
     addingTime = true;
   }
@@ -138,7 +138,7 @@ first__screen__btn3.addEventListener("click", () => {
   highLevel = true;
   middleLevel = false;
   lowLevel = false;
-  initGame(18, 14);
+  initGame(18, 18);
   makeDevilMove();
   first__screen.classList.add("hide");
   addingTime = true;
