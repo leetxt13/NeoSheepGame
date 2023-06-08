@@ -1,6 +1,6 @@
 "use strict";
-const ITEM_SIZE = 100;
-const DEVIL_SIZE = -50;
+const ITEM_SIZE = 90;
+const DEVIL_SIZE = 20;
 let lifeNum = 3;
 
 const field = document.querySelector(".game__field");
@@ -139,7 +139,7 @@ first__screen__btn3.addEventListener("click", () => {
   highLevel = true;
   middleLevel = false;
   lowLevel = false;
-  initGame(18, 18);
+  initGame(19, 18);
   makeDevilMove();
   first__screen.classList.add("hide");
   addingTime = true;
