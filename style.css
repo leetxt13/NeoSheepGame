@@ -231,4 +231,9 @@ img[data-id="devil"] {
   .life {
     margin-left: 60%;
   }
+  .game__timer,
+  .game__score {
+    font-size: 40px;
+    line-height: 60px;
+  }
 }
